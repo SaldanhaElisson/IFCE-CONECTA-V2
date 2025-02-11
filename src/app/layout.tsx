@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { ThemeProvider } from "./themes/theme-ant";
+import { ClerkProvider } from "@clerk/nextjs";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const robotoSans = Roboto({
+  variable: "--font-roboto-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["100", "400", "300"],
 });
 
 export const metadata: Metadata = {
@@ -23,9 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html lang="pt-br">
+      <body className={`${robotoSans.variable}`}>
+        <ClerkProvider>
+          <ThemeProvider>
+            <AntdRegistry>{children}</AntdRegistry>
+          </ThemeProvider>
+        </ClerkProvider>
       </body>
     </html>
   );
