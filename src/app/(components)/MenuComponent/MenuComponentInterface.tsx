@@ -3,6 +3,7 @@ import {
   HomeOutlined,
   SnippetsOutlined,
   VideoCameraOutlined,
+  WechatOutlined,
 } from "@ant-design/icons";
 import { MenuProps } from "antd";
 import Link from "next/link";
@@ -67,6 +68,12 @@ const homeItem = new MenuItemLeaf(
   <Link href="/home">Home</Link>
 );
 
+const chatItem = new MenuItemLeaf(
+  "chat",
+  <WechatOutlined />,
+  <Link href="/home/chat-ia">Chat</Link>
+);
+
 const createLabItem = new MenuItemLeaf(
   "lab:create-lab",
   null,
@@ -113,6 +120,7 @@ const menuComponents: MenuComponent[] = [
   labSubMenu,
   questionSubMenu,
   userSubMenu,
+  chatItem,
 ];
 
 export const ItemsSideBar: MenuItem[] = menuComponents.map((component) =>
