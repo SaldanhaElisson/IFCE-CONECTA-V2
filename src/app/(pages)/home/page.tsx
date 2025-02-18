@@ -23,7 +23,7 @@ export default async function PageForGetNameUser() {
   let items: CollapseProps["items"] | undefined = undefined;
   async function getAllQuestions() {
     const questions: Question[] = await questionsGetAll();
-    console.log(questions);
+
     const formattedItems = await formatQuestionsToCollapseItems(questions);
     items = formattedItems;
   }

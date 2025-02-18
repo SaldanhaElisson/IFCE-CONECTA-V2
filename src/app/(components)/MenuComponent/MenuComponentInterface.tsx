@@ -8,7 +8,7 @@ import {
 import { MenuProps } from "antd";
 import Link from "next/link";
 
-type MenuItem = Required<MenuProps>["items"][number];
+export type MenuItem = Required<MenuProps>["items"][number];
 
 export interface MenuComponent {
   display(): MenuItem;
